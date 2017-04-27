@@ -1,0 +1,165 @@
+﻿namespace Beta
+{
+    partial class frmPrincipale
+    {
+        /// <summary>
+        /// Variable nécessaire au concepteur.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Nettoyage des ressources utilisées.
+        /// </summary>
+        /// <param name="disposing">true si les ressources managées doivent être supprimées ; sinon, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Code généré par le Concepteur Windows Form
+
+        /// <summary>
+        /// Méthode requise pour la prise en charge du concepteur - ne modifiez pas
+        /// le contenu de cette méthode avec l'éditeur de code.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.tbcPrincipale = new System.Windows.Forms.TabControl();
+            this.tbpTravail = new System.Windows.Forms.TabPage();
+            this.tbpTravaux = new System.Windows.Forms.TabPage();
+            this.lsbListeTravaux = new System.Windows.Forms.ListBox();
+            this.tbxCopietbpTravaux = new System.Windows.Forms.TextBox();
+            this.tbxExemple = new System.Windows.Forms.TextBox();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.tsmFichier = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsiNouveau = new System.Windows.Forms.ToolStripMenuItem();
+            this.tbcPrincipale.SuspendLayout();
+            this.tbpTravail.SuspendLayout();
+            this.tbpTravaux.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // tbcPrincipale
+            // 
+            this.tbcPrincipale.Controls.Add(this.tbpTravail);
+            this.tbcPrincipale.Controls.Add(this.tbpTravaux);
+            this.tbcPrincipale.Location = new System.Drawing.Point(13, 27);
+            this.tbcPrincipale.Name = "tbcPrincipale";
+            this.tbcPrincipale.SelectedIndex = 0;
+            this.tbcPrincipale.Size = new System.Drawing.Size(576, 277);
+            this.tbcPrincipale.TabIndex = 0;
+            // 
+            // tbpTravail
+            // 
+            this.tbpTravail.Controls.Add(this.tbxExemple);
+            this.tbpTravail.Controls.Add(this.tbxCopietbpTravaux);
+            this.tbpTravail.Location = new System.Drawing.Point(4, 22);
+            this.tbpTravail.Name = "tbpTravail";
+            this.tbpTravail.Padding = new System.Windows.Forms.Padding(3);
+            this.tbpTravail.Size = new System.Drawing.Size(568, 251);
+            this.tbpTravail.TabIndex = 0;
+            this.tbpTravail.Text = "Travail";
+            this.tbpTravail.UseVisualStyleBackColor = true;
+            // 
+            // tbpTravaux
+            // 
+            this.tbpTravaux.Controls.Add(this.lsbListeTravaux);
+            this.tbpTravaux.Location = new System.Drawing.Point(4, 22);
+            this.tbpTravaux.Name = "tbpTravaux";
+            this.tbpTravaux.Padding = new System.Windows.Forms.Padding(3);
+            this.tbpTravaux.Size = new System.Drawing.Size(568, 251);
+            this.tbpTravaux.TabIndex = 1;
+            this.tbpTravaux.Text = "Travaux";
+            this.tbpTravaux.UseVisualStyleBackColor = true;
+            // 
+            // lsbListeTravaux
+            // 
+            this.lsbListeTravaux.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.lsbListeTravaux.FormattingEnabled = true;
+            this.lsbListeTravaux.ItemHeight = 20;
+            this.lsbListeTravaux.Location = new System.Drawing.Point(6, 6);
+            this.lsbListeTravaux.Name = "lsbListeTravaux";
+            this.lsbListeTravaux.Size = new System.Drawing.Size(556, 184);
+            this.lsbListeTravaux.TabIndex = 0;
+            this.lsbListeTravaux.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.lsbListeTravaux_DrawItem);
+            // 
+            // tbxCopietbpTravaux
+            // 
+            this.tbxCopietbpTravaux.Location = new System.Drawing.Point(6, 154);
+            this.tbxCopietbpTravaux.Name = "tbxCopietbpTravaux";
+            this.tbxCopietbpTravaux.Size = new System.Drawing.Size(555, 20);
+            this.tbxCopietbpTravaux.TabIndex = 0;
+            // 
+            // tbxExemple
+            // 
+            this.tbxExemple.Location = new System.Drawing.Point(6, 6);
+            this.tbxExemple.Name = "tbxExemple";
+            this.tbxExemple.Size = new System.Drawing.Size(555, 20);
+            this.tbxExemple.TabIndex = 1;
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmFichier});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(601, 24);
+            this.menuStrip1.TabIndex = 1;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // tsmFichier
+            // 
+            this.tsmFichier.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsiNouveau});
+            this.tsmFichier.Name = "tsmFichier";
+            this.tsmFichier.Size = new System.Drawing.Size(54, 20);
+            this.tsmFichier.Text = "Fichier";
+            // 
+            // tsiNouveau
+            // 
+            this.tsiNouveau.Name = "tsiNouveau";
+            this.tsiNouveau.Size = new System.Drawing.Size(152, 22);
+            this.tsiNouveau.Text = "Nouveau";
+            this.tsiNouveau.Click += new System.EventHandler(this.tsiNouveau_Click);
+            // 
+            // frmPrincipale
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(601, 316);
+            this.Controls.Add(this.tbcPrincipale);
+            this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
+            this.Name = "frmPrincipale";
+            this.Text = "Travaux disciplinaires";
+            this.tbcPrincipale.ResumeLayout(false);
+            this.tbpTravail.ResumeLayout(false);
+            this.tbpTravail.PerformLayout();
+            this.tbpTravaux.ResumeLayout(false);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.TabControl tbcPrincipale;
+        private System.Windows.Forms.TabPage tbpTravail;
+        private System.Windows.Forms.TextBox tbxExemple;
+        private System.Windows.Forms.TextBox tbxCopietbpTravaux;
+        private System.Windows.Forms.TabPage tbpTravaux;
+        private System.Windows.Forms.ListBox lsbListeTravaux;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem tsmFichier;
+        private System.Windows.Forms.ToolStripMenuItem tsiNouveau;
+    }
+}
+
