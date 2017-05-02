@@ -86,6 +86,10 @@ namespace Beta
             this.tbxCopie.Text = TexteCopie;
             tbcPrincipale.SelectedIndex = 0;
         }
+        /// <summary>
+        /// Serialise la classe travail correspondant à l'index
+        /// </summary>
+        /// <param name="index">index du travail que l'on veut serialiser</param>
         public void Serialiser(int index)
         {
             string[] DonneeSerialisee = { ListeTravaux[index].NomEleve, ListeTravaux[index].TexteExemple, Convert.ToString(ListeTravaux[index].Progression) };
@@ -94,6 +98,9 @@ namespace Beta
             formatter.Serialize(stream, DonneeSerialisee);
             stream.Close();
         }
+        /// <summary>
+        /// Deserialise le fichier "Data.td" se trouvant à la racine de bin
+        /// </summary>
         public void Deserialiser()
         {
             var formatter = new BinaryFormatter();
@@ -107,67 +114,17 @@ namespace Beta
             MisAJourListeVue();
             stream.Close();
         }
+        /// <summary>
+        /// Ajoute un travail déjà existant
+        /// </summary>
+        /// <param name="paramTexte">Texte du travail existant</param>
+        /// <param name="paramNom">Nom de l'élève</param>
+        /// <param name="paramProgression">Progression du travail</param>
         public void AjouterTravail(string paramTexte, string paramNom, int paramProgression)
         {
             clsTravail TravailAjoute = new clsTravail(paramTexte, paramNom, paramProgression);
             ListeTravaux.Add(TravailAjoute);
         }
-        //public void Serialiser(int index)
-        //{
-        //    Hashtable zer = new Hashtable();
-        //    zer.Add("jeff", "Lebo");
-        //    // To serialize the hashtable and its key/value pairs,  
-        //    // you must first open a stream for writing. 
-        //    // In this case, use a file stream.
-        //    FileStream fs = new FileStream("DataFile.dat", FileMode.Create);
-
-        //    // Construct a BinaryFormatter and use it to serialize the data to the stream.
-        //    BinaryFormatter formatter = new BinaryFormatter();
-        //    try
-        //    {
-        //        formatter.Serialize(fs, zer);
-        //    }
-        //    catch (SerializationException e)
-        //    {
-        //        Console.WriteLine("Failed to serialize. Reason: " + e.Message);
-        //        throw;
-        //    }
-        //    finally
-        //    {
-        //        fs.Close();
-        //    }
-        //}
-        //public void Deserialise()
-        //{
-        //    // Declare the hashtable reference.
-        //    Hashtable addresses = null;
-
-        //    // Open the file containing the data that you want to deserialize.
-        //    FileStream fs = new FileStream("DataFile.dat", FileMode.Open);
-        //    try
-        //    {
-        //        BinaryFormatter formatter = new BinaryFormatter();
-
-        //        // Deserialize the hashtable from the file and 
-        //        // assign the reference to the local variable.
-        //        addresses = (Hashtable)formatter.Deserialize(fs);
-        //    }
-        //    catch (SerializationException e)
-        //    {
-        //        Console.WriteLine("Failed to deserialize. Reason: " + e.Message);
-        //        throw;
-        //    }
-        //    finally
-        //    {
-        //        fs.Close();
-        //    }
-
-        //    // To prove that the table deserialized correctly, 
-        //    // display the key/value pairs.
-        //    tbxCopie.Text = addresses[0]
-        //    //addresses[0]
-        //}
-
 
         private void tsiNouveau_Click(object sender, EventArgs e)
         {

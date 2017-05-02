@@ -39,6 +39,7 @@
             this.tsiNouveau = new System.Windows.Forms.ToolStripMenuItem();
             this.btnSerialiser = new System.Windows.Forms.Button();
             this.btnDeserialiser = new System.Windows.Forms.Button();
+            this.ofdDeserialisation = new System.Windows.Forms.OpenFileDialog();
             this.tbcPrincipale.SuspendLayout();
             this.tbpTravail.SuspendLayout();
             this.tbpTravaux.SuspendLayout();
@@ -140,7 +141,7 @@
             this.btnSerialiser.Name = "btnSerialiser";
             this.btnSerialiser.Size = new System.Drawing.Size(158, 35);
             this.btnSerialiser.TabIndex = 5;
-            this.btnSerialiser.Text = "Créer";
+            this.btnSerialiser.Text = "Serialiser";
             this.btnSerialiser.UseVisualStyleBackColor = true;
             this.btnSerialiser.Click += new System.EventHandler(this.btnSerialiser_Click);
             // 
@@ -151,9 +152,13 @@
             this.btnDeserialiser.Name = "btnDeserialiser";
             this.btnDeserialiser.Size = new System.Drawing.Size(158, 35);
             this.btnDeserialiser.TabIndex = 6;
-            this.btnDeserialiser.Text = "Créer";
+            this.btnDeserialiser.Text = "Deserialiser";
             this.btnDeserialiser.UseVisualStyleBackColor = true;
             this.btnDeserialiser.Click += new System.EventHandler(this.btnDeserialiser_Click);
+            // 
+            // ofdDeserialisation
+            // 
+            this.ofdDeserialisation.FileName = "openFileDialog1";
             // 
             // frmPrincipale
             // 
@@ -191,6 +196,7 @@
         private System.Windows.Forms.ToolStripMenuItem tsiNouveau;
         private System.Windows.Forms.Button btnSerialiser;
         private System.Windows.Forms.Button btnDeserialiser;
+        private System.Windows.Forms.OpenFileDialog ofdDeserialisation;
     }
 }
 
