@@ -30,10 +30,10 @@
         {
             this.tbcPrincipale = new System.Windows.Forms.TabControl();
             this.tbpTravail = new System.Windows.Forms.TabPage();
+            this.tbxExemple = new System.Windows.Forms.TextBox();
+            this.tbxCopie = new System.Windows.Forms.TextBox();
             this.tbpTravaux = new System.Windows.Forms.TabPage();
             this.lsbListeTravaux = new System.Windows.Forms.ListBox();
-            this.tbxCopietbpTravaux = new System.Windows.Forms.TextBox();
-            this.tbxExemple = new System.Windows.Forms.TextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.tsmFichier = new System.Windows.Forms.ToolStripMenuItem();
             this.tsiNouveau = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,7 +56,7 @@
             // tbpTravail
             // 
             this.tbpTravail.Controls.Add(this.tbxExemple);
-            this.tbpTravail.Controls.Add(this.tbxCopietbpTravaux);
+            this.tbpTravail.Controls.Add(this.tbxCopie);
             this.tbpTravail.Location = new System.Drawing.Point(4, 22);
             this.tbpTravail.Name = "tbpTravail";
             this.tbpTravail.Padding = new System.Windows.Forms.Padding(3);
@@ -64,6 +64,22 @@
             this.tbpTravail.TabIndex = 0;
             this.tbpTravail.Text = "Travail";
             this.tbpTravail.UseVisualStyleBackColor = true;
+            // 
+            // tbxExemple
+            // 
+            this.tbxExemple.Location = new System.Drawing.Point(6, 6);
+            this.tbxExemple.Name = "tbxExemple";
+            this.tbxExemple.ReadOnly = true;
+            this.tbxExemple.Size = new System.Drawing.Size(555, 20);
+            this.tbxExemple.TabIndex = 1;
+            // 
+            // tbxCopie
+            // 
+            this.tbxCopie.Location = new System.Drawing.Point(6, 154);
+            this.tbxCopie.Name = "tbxCopie";
+            this.tbxCopie.Size = new System.Drawing.Size(555, 20);
+            this.tbxCopie.TabIndex = 0;
+            this.tbxCopie.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxCopie_KeyPress);
             // 
             // tbpTravaux
             // 
@@ -86,20 +102,7 @@
             this.lsbListeTravaux.Size = new System.Drawing.Size(556, 184);
             this.lsbListeTravaux.TabIndex = 0;
             this.lsbListeTravaux.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.lsbListeTravaux_DrawItem);
-            // 
-            // tbxCopietbpTravaux
-            // 
-            this.tbxCopietbpTravaux.Location = new System.Drawing.Point(6, 154);
-            this.tbxCopietbpTravaux.Name = "tbxCopietbpTravaux";
-            this.tbxCopietbpTravaux.Size = new System.Drawing.Size(555, 20);
-            this.tbxCopietbpTravaux.TabIndex = 0;
-            // 
-            // tbxExemple
-            // 
-            this.tbxExemple.Location = new System.Drawing.Point(6, 6);
-            this.tbxExemple.Name = "tbxExemple";
-            this.tbxExemple.Size = new System.Drawing.Size(555, 20);
-            this.tbxExemple.TabIndex = 1;
+            this.lsbListeTravaux.DoubleClick += new System.EventHandler(this.lsbListeTravaux_DoubleClick);
             // 
             // menuStrip1
             // 
@@ -154,7 +157,7 @@
         private System.Windows.Forms.TabControl tbcPrincipale;
         private System.Windows.Forms.TabPage tbpTravail;
         private System.Windows.Forms.TextBox tbxExemple;
-        private System.Windows.Forms.TextBox tbxCopietbpTravaux;
+        private System.Windows.Forms.TextBox tbxCopie;
         private System.Windows.Forms.TabPage tbpTravaux;
         private System.Windows.Forms.ListBox lsbListeTravaux;
         private System.Windows.Forms.MenuStrip menuStrip1;

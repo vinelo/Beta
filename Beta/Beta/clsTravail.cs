@@ -69,6 +69,8 @@ namespace Beta
         {
             this.TexteExemple = paramTexte;
             this.NomEleve = paramNom;
+            this.Progression = 0;
+            this.TotalCaractere = TexteExemple.Count();
         }
     }
 }
