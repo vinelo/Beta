@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Collections;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Runtime.Serialization;
+using System.IO;
 
 namespace Beta
 {
@@ -14,6 +13,7 @@ namespace Beta
     {
         private int _indexSelectionne;
         private List<clsTravail> _listeTravaux;
+
         public frmPrincipale()
         {
             InitializeComponent();
@@ -86,6 +86,88 @@ namespace Beta
             this.tbxCopie.Text = TexteCopie;
             tbcPrincipale.SelectedIndex = 0;
         }
+        public void Serialiser(int index)
+        {
+            string[] DonneeSerialisee = { ListeTravaux[index].NomEleve, ListeTravaux[index].TexteExemple, Convert.ToString(ListeTravaux[index].Progression) };
+            FileStream stream = File.Create("Data.td");
+            var formatter = new BinaryFormatter();
+            formatter.Serialize(stream, DonneeSerialisee);
+            stream.Close();
+        }
+        public void Deserialiser()
+        {
+            var formatter = new BinaryFormatter();
+            FileStream stream = File.OpenRead("Data.td");
+            string[] v = (string[])formatter.Deserialize(stream);
+            string NomEleve = v[0];
+            string Texte = v[1];
+            int Progression = Convert.ToInt32(v[2]);
+            AjouterTravail(Texte, NomEleve, Progression);
+
+            MisAJourListeVue();
+            stream.Close();
+        }
+        public void AjouterTravail(string paramTexte, string paramNom, int paramProgression)
+        {
+            clsTravail TravailAjoute = new clsTravail(paramTexte, paramNom, paramProgression);
+            ListeTravaux.Add(TravailAjoute);
+        }
+        //public void Serialiser(int index)
+        //{
+        //    Hashtable zer = new Hashtable();
+        //    zer.Add("jeff", "Lebo");
+        //    // To serialize the hashtable and its key/value pairs,  
+        //    // you must first open a stream for writing. 
+        //    // In this case, use a file stream.
+        //    FileStream fs = new FileStream("DataFile.dat", FileMode.Create);
+
+        //    // Construct a BinaryFormatter and use it to serialize the data to the stream.
+        //    BinaryFormatter formatter = new BinaryFormatter();
+        //    try
+        //    {
+        //        formatter.Serialize(fs, zer);
+        //    }
+        //    catch (SerializationException e)
+        //    {
+        //        Console.WriteLine("Failed to serialize. Reason: " + e.Message);
+        //        throw;
+        //    }
+        //    finally
+        //    {
+        //        fs.Close();
+        //    }
+        //}
+        //public void Deserialise()
+        //{
+        //    // Declare the hashtable reference.
+        //    Hashtable addresses = null;
+
+        //    // Open the file containing the data that you want to deserialize.
+        //    FileStream fs = new FileStream("DataFile.dat", FileMode.Open);
+        //    try
+        //    {
+        //        BinaryFormatter formatter = new BinaryFormatter();
+
+        //        // Deserialize the hashtable from the file and 
+        //        // assign the reference to the local variable.
+        //        addresses = (Hashtable)formatter.Deserialize(fs);
+        //    }
+        //    catch (SerializationException e)
+        //    {
+        //        Console.WriteLine("Failed to deserialize. Reason: " + e.Message);
+        //        throw;
+        //    }
+        //    finally
+        //    {
+        //        fs.Close();
+        //    }
+
+        //    // To prove that the table deserialized correctly, 
+        //    // display the key/value pairs.
+        //    tbxCopie.Text = addresses[0]
+        //    //addresses[0]
+        //}
+
 
         private void tsiNouveau_Click(object sender, EventArgs e)
         {
@@ -155,6 +237,16 @@ namespace Beta
             {
                 MessageBox.Show("Félicitation vous avez fini ! ");
             }
+        }
+
+        private void btnSerialiser_Click(object sender, EventArgs e)
+        {
+            Serialiser(IndexSelectionne);
+        }
+
+        private void btnDeserialiser_Click(object sender, EventArgs e)
+        {
+            Deserialiser();
         }
     }
 }

@@ -37,6 +37,8 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.tsmFichier = new System.Windows.Forms.ToolStripMenuItem();
             this.tsiNouveau = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnSerialiser = new System.Windows.Forms.Button();
+            this.btnDeserialiser = new System.Windows.Forms.Button();
             this.tbcPrincipale.SuspendLayout();
             this.tbpTravail.SuspendLayout();
             this.tbpTravaux.SuspendLayout();
@@ -55,6 +57,8 @@
             // 
             // tbpTravail
             // 
+            this.tbpTravail.Controls.Add(this.btnDeserialiser);
+            this.tbpTravail.Controls.Add(this.btnSerialiser);
             this.tbpTravail.Controls.Add(this.tbxExemple);
             this.tbpTravail.Controls.Add(this.tbxCopie);
             this.tbpTravail.Location = new System.Drawing.Point(4, 22);
@@ -125,9 +129,31 @@
             // tsiNouveau
             // 
             this.tsiNouveau.Name = "tsiNouveau";
-            this.tsiNouveau.Size = new System.Drawing.Size(152, 22);
+            this.tsiNouveau.Size = new System.Drawing.Size(122, 22);
             this.tsiNouveau.Text = "Nouveau";
             this.tsiNouveau.Click += new System.EventHandler(this.tsiNouveau_Click);
+            // 
+            // btnSerialiser
+            // 
+            this.btnSerialiser.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnSerialiser.Location = new System.Drawing.Point(197, 210);
+            this.btnSerialiser.Name = "btnSerialiser";
+            this.btnSerialiser.Size = new System.Drawing.Size(158, 35);
+            this.btnSerialiser.TabIndex = 5;
+            this.btnSerialiser.Text = "Créer";
+            this.btnSerialiser.UseVisualStyleBackColor = true;
+            this.btnSerialiser.Click += new System.EventHandler(this.btnSerialiser_Click);
+            // 
+            // btnDeserialiser
+            // 
+            this.btnDeserialiser.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnDeserialiser.Location = new System.Drawing.Point(361, 210);
+            this.btnDeserialiser.Name = "btnDeserialiser";
+            this.btnDeserialiser.Size = new System.Drawing.Size(158, 35);
+            this.btnDeserialiser.TabIndex = 6;
+            this.btnDeserialiser.Text = "Créer";
+            this.btnDeserialiser.UseVisualStyleBackColor = true;
+            this.btnDeserialiser.Click += new System.EventHandler(this.btnDeserialiser_Click);
             // 
             // frmPrincipale
             // 
@@ -163,6 +189,8 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem tsmFichier;
         private System.Windows.Forms.ToolStripMenuItem tsiNouveau;
+        private System.Windows.Forms.Button btnSerialiser;
+        private System.Windows.Forms.Button btnDeserialiser;
     }
 }
 

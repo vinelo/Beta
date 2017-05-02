@@ -65,11 +65,12 @@ namespace Beta
             }
         }
         public clsTravail() : this("Texte aléatoire n'est-ce pas ?", "Dupont") { }
-        public clsTravail(string paramTexte, string paramNom)
+        public clsTravail(string paramTexte, string paramNom) : this(paramTexte, paramNom, 0) { }
+        public clsTravail(string paramTexte, string paramNom, int paramProgression)
         {
             this.TexteExemple = paramTexte;
             this.NomEleve = paramNom;
-            this.Progression = 0;
+            this.Progression = paramProgression;
             this.TotalCaractere = TexteExemple.Count();
         }
     }
