@@ -30,6 +30,7 @@
         {
             this.tbcPrincipale = new System.Windows.Forms.TabControl();
             this.tbpTravail = new System.Windows.Forms.TabPage();
+            this.btnSerialiser = new System.Windows.Forms.Button();
             this.tbxExemple = new System.Windows.Forms.TextBox();
             this.tbxCopie = new System.Windows.Forms.TextBox();
             this.tbpTravaux = new System.Windows.Forms.TabPage();
@@ -37,9 +38,9 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.tsmFichier = new System.Windows.Forms.ToolStripMenuItem();
             this.tsiNouveau = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnSerialiser = new System.Windows.Forms.Button();
-            this.btnDeserialiser = new System.Windows.Forms.Button();
+            this.tsiOuvrir = new System.Windows.Forms.ToolStripMenuItem();
             this.ofdDeserialisation = new System.Windows.Forms.OpenFileDialog();
+            this.sfdSauvegarder = new System.Windows.Forms.SaveFileDialog();
             this.tbcPrincipale.SuspendLayout();
             this.tbpTravail.SuspendLayout();
             this.tbpTravaux.SuspendLayout();
@@ -58,7 +59,6 @@
             // 
             // tbpTravail
             // 
-            this.tbpTravail.Controls.Add(this.btnDeserialiser);
             this.tbpTravail.Controls.Add(this.btnSerialiser);
             this.tbpTravail.Controls.Add(this.tbxExemple);
             this.tbpTravail.Controls.Add(this.tbxCopie);
@@ -69,6 +69,17 @@
             this.tbpTravail.TabIndex = 0;
             this.tbpTravail.Text = "Travail";
             this.tbpTravail.UseVisualStyleBackColor = true;
+            // 
+            // btnSerialiser
+            // 
+            this.btnSerialiser.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnSerialiser.Location = new System.Drawing.Point(6, 180);
+            this.btnSerialiser.Name = "btnSerialiser";
+            this.btnSerialiser.Size = new System.Drawing.Size(555, 65);
+            this.btnSerialiser.TabIndex = 5;
+            this.btnSerialiser.Text = "Sauvegarder";
+            this.btnSerialiser.UseVisualStyleBackColor = true;
+            this.btnSerialiser.Click += new System.EventHandler(this.btnSerialiser_Click);
             // 
             // tbxExemple
             // 
@@ -122,7 +133,8 @@
             // tsmFichier
             // 
             this.tsmFichier.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsiNouveau});
+            this.tsiNouveau,
+            this.tsiOuvrir});
             this.tsmFichier.Name = "tsmFichier";
             this.tsmFichier.Size = new System.Drawing.Size(54, 20);
             this.tsmFichier.Text = "Fichier";
@@ -134,31 +146,17 @@
             this.tsiNouveau.Text = "Nouveau";
             this.tsiNouveau.Click += new System.EventHandler(this.tsiNouveau_Click);
             // 
-            // btnSerialiser
+            // tsiOuvrir
             // 
-            this.btnSerialiser.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnSerialiser.Location = new System.Drawing.Point(197, 210);
-            this.btnSerialiser.Name = "btnSerialiser";
-            this.btnSerialiser.Size = new System.Drawing.Size(158, 35);
-            this.btnSerialiser.TabIndex = 5;
-            this.btnSerialiser.Text = "Serialiser";
-            this.btnSerialiser.UseVisualStyleBackColor = true;
-            this.btnSerialiser.Click += new System.EventHandler(this.btnSerialiser_Click);
+            this.tsiOuvrir.Name = "tsiOuvrir";
+            this.tsiOuvrir.Size = new System.Drawing.Size(122, 22);
+            this.tsiOuvrir.Text = "Ouvrir";
+            this.tsiOuvrir.Click += new System.EventHandler(this.tsiOuvrir_Click);
             // 
-            // btnDeserialiser
+            // sfdSauvegarder
             // 
-            this.btnDeserialiser.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnDeserialiser.Location = new System.Drawing.Point(361, 210);
-            this.btnDeserialiser.Name = "btnDeserialiser";
-            this.btnDeserialiser.Size = new System.Drawing.Size(158, 35);
-            this.btnDeserialiser.TabIndex = 6;
-            this.btnDeserialiser.Text = "Deserialiser";
-            this.btnDeserialiser.UseVisualStyleBackColor = true;
-            this.btnDeserialiser.Click += new System.EventHandler(this.btnDeserialiser_Click);
-            // 
-            // ofdDeserialisation
-            // 
-            this.ofdDeserialisation.FileName = "openFileDialog1";
+            this.sfdSauvegarder.DefaultExt = "td";
+            this.sfdSauvegarder.Filter = "fichiers toto (*.td)|*.td";
             // 
             // frmPrincipale
             // 
@@ -195,8 +193,9 @@
         private System.Windows.Forms.ToolStripMenuItem tsmFichier;
         private System.Windows.Forms.ToolStripMenuItem tsiNouveau;
         private System.Windows.Forms.Button btnSerialiser;
-        private System.Windows.Forms.Button btnDeserialiser;
         private System.Windows.Forms.OpenFileDialog ofdDeserialisation;
+        private System.Windows.Forms.ToolStripMenuItem tsiOuvrir;
+        private System.Windows.Forms.SaveFileDialog sfdSauvegarder;
     }
 }
 

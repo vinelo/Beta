@@ -90,10 +90,11 @@ namespace Beta
         /// Serialise la classe travail correspondant à l'index
         /// </summary>
         /// <param name="index">index du travail que l'on veut serialiser</param>
-        public void Serialiser(int index)
+        /// <param name="paramChemin">Chemin ou l'on veut sauver son fichier</param>
+        public void Serialiser(int index,string paramChemin)
         {
             string[] DonneeSerialisee = { ListeTravaux[index].NomEleve, ListeTravaux[index].TexteExemple, Convert.ToString(ListeTravaux[index].Progression) };
-            FileStream stream = File.Create("Data.td");
+            FileStream stream = File.Create(paramChemin);
             var formatter = new BinaryFormatter();
             formatter.Serialize(stream, DonneeSerialisee);
             stream.Close();
@@ -101,10 +102,11 @@ namespace Beta
         /// <summary>
         /// Deserialise le fichier "Data.td" se trouvant à la racine de bin
         /// </summary>
-        public void Deserialiser()
+        /// <param name="paramFichier">Fichier que l'on veut deserialiser</param>
+        public void Deserialiser(string paramFichier)
         {
             var formatter = new BinaryFormatter();
-            FileStream stream = File.OpenRead("Data.td");
+            FileStream stream = File.OpenRead(paramFichier);
             string[] v = (string[])formatter.Deserialize(stream);
             string NomEleve = v[0];
             string Texte = v[1];
@@ -198,12 +200,29 @@ namespace Beta
 
         private void btnSerialiser_Click(object sender, EventArgs e)
         {
-            Serialiser(IndexSelectionne);
+            
+            if (sfdSauvegarder.ShowDialog() == DialogResult.OK)
+            {
+                string sourceFile = sfdSauvegarder.FileName;
+                Serialiser(IndexSelectionne, sourceFile);
+            }
+            
         }
 
         private void btnDeserialiser_Click(object sender, EventArgs e)
         {
-            Deserialiser();
+            //Deserialiser();
+        }
+
+        private void tsiOuvrir_Click(object sender, EventArgs e)
+        {
+            string sourceFile;
+            if (ofdDeserialisation.ShowDialog() == DialogResult.OK)
+            {
+                sourceFile = ofdDeserialisation.FileName;
+                Deserialiser(sourceFile);
+            }
+            
         }
     }
 }
