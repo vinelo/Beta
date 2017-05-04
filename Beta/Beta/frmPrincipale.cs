@@ -6,11 +6,15 @@ using System.Collections;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Runtime.Serialization;
 using System.IO;
+using System.Linq;
 
 namespace Beta
 {
     public partial class frmPrincipale : Form
     {
+        private int[] _tableauCaracteresBannisAscii = { 1,2};
+        
+        private List<char> _listeCaracteresBannis;
         private int _indexSelectionne;
         private List<clsTravail> _listeTravaux;
 
@@ -18,6 +22,15 @@ namespace Beta
         {
             InitializeComponent();
             ListeTravaux = new List<clsTravail>();
+            this.ListeCaracteresBannis = new List<char>();
+            //Remplissage du tableau TableauCaractereBannis
+            for (int i = 0; i < 31; i++)
+            {
+                this.ListeCaracteresBannis.Add((char)i);
+            }
+            this.ListeCaracteresBannis.Add('0');
+            //_________________________________________
+
             CreerTravail("Vincent", "Vincent");
             MisAJourListeVue();
         }
@@ -48,6 +61,32 @@ namespace Beta
             }
         }
 
+        public int[] TableauCaracteresBannisAscii
+        {
+            get
+            {
+                return _tableauCaracteresBannisAscii;
+            }
+
+            set
+            {
+                _tableauCaracteresBannisAscii = value;
+            }
+        }
+
+        public List<char> ListeCaracteresBannis
+        {
+            get
+            {
+                return _listeCaracteresBannis;
+            }
+
+            set
+            {
+                _listeCaracteresBannis = value;
+            }
+        }
+
 
         /// <summary>
         /// Créer un nouveau travail et l'ajoute dans la liste
@@ -56,6 +95,7 @@ namespace Beta
         /// <param name="paramNom">Nom de l'élève</param>
         public void CreerTravail(string paramTexte, string paramNom)
         {
+            paramTexte = this.FiltrerCaractere(paramTexte);
             clsTravail NouveauTravail = new clsTravail(paramTexte, paramNom);
             ListeTravaux.Add(NouveauTravail);
         }
@@ -126,6 +166,23 @@ namespace Beta
         {
             clsTravail TravailAjoute = new clsTravail(paramTexte, paramNom, paramProgression);
             ListeTravaux.Add(TravailAjoute);
+        }
+        /// <summary>
+        /// Filtre les caractère du texte en paramètre
+        /// </summary>
+        /// <param name="paramTexte">Texte que l'on veut filtrer</param>
+        /// <returns></returns>
+        public string FiltrerCaractere(string paramTexte)
+        {
+            int[] TableauTexteEnAscii = paramTexte.Select(r => (int)r).ToArray();
+            foreach (char c in this.ListeCaracteresBannis)
+            {
+                if(paramTexte.Contains(c) == true)
+                {
+                    paramTexte = paramTexte.Replace(c, ' ');
+                }
+            }
+            return paramTexte;
         }
 
         private void tsiNouveau_Click(object sender, EventArgs e)
